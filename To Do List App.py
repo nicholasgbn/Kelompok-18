@@ -17,7 +17,7 @@ def delete_task():
         task_index = listbox_tasks.curselection()[0]
         listbox_tasks.delete(task_index)
     except:
-        tkinter.messagebox.showwarning(title="Opps!", message="You Must Select A Task!!")
+        tkinter.messagebox.showwarning(title="Oops!", message="You Must Select A Task!!")
 
 def load_task():
     try:
@@ -26,21 +26,25 @@ def load_task():
         for task in tasks:
             listbox_tasks.insert(END, task)
     except:
-        tkinter.messagebox.showwarning(title="Opps!", message="Can't Find Tasks!!")
+        tkinter.messagebox.showwarning(title="Oops!", message="Can't Find Tasks!!")
 
 def save_task():
     tasks = listbox_tasks.get(0, listbox_tasks.size())
     pickle.dump(tasks, open("tasks.dat", "wb"))
 
 def mark_task():
-    listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "yellow")
-    for mark in listbox_tasks:
+    try:
+        listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "yellow")
         listbox_tasks.selection_clear(0, END)
+    except:
+        tkinter.messagebox.showwarning(title="Oops!", message="You Must Select A Task")
 
 def unmark_task():
-    listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "white")
-    for unmark in listbox_tasks:
+    try:
+        listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "white")
         listbox_tasks.selection_clear(0,END)
+    except:
+        tkinter.messagebox.showwarning(title="Oops!", message="You Must Select A Task")
 
 def del_all():
     deleteall = listbox_tasks.delete(0, END) 
