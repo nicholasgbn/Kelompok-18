@@ -7,15 +7,15 @@ from tkinter import *
 root = tkinter.Tk()
 root.title("TO DO LIST APP")
 root.geometry("600x550")
-root.configure(bg="#85e3ff")
+root.configure(bg="#293462")
 root.resizable(0,0)
  
 label = Label(root, text = "WELCOME TO\nTO DO LIST APP\n================================================",
-              font = "Helvetica, 15 bold", width = 10, bd = 5, bg = "#85e3ff", fg = "#666666")      
+              font = "Helvetica, 15 bold", width = 10, bd = 5, fg = "white", bg = "#293462")      
 label.pack(side = "top", fill = BOTH)
  
 label2 = Label(root, text = "Your Current Task:",
-              font = "ariel, 10 bold", bg = "#85e3ff", fg = "#666666")      
+              font = "ariel, 10 bold", fg = "white", bg = "#293462")      
 label2.pack()
  
 #Membuat Fungsi Program
@@ -52,7 +52,7 @@ def save_task():
        
 def mark_task():
     try:
-        listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "#fff5ba")
+        listbox_tasks.itemconfig(listbox_tasks.curselection(), bg= "#f3fc3a")
         listbox_tasks.selection_clear(0, END)
     except:
         tkinter.messagebox.showwarning(title="Oops!", message="You Must Select A Task" )
@@ -84,13 +84,13 @@ listbox_tasks.pack()
 listbox_tasks.config(yscrollcommand = scrollbar_tasks.set)
 scrollbar_tasks.config(command=listbox_tasks.yview)
  
-label2 = Label(root, text = "Write Your New Task Here:", font = "ariel, 9 bold", fg = "#666666", bg= "#85e3ff")
+label2 = Label(root, text = "Write Your New Task Here:", font = "ariel, 9 bold", fg = "white", bg= "#293462")
 label2.pack()
  
 entry_task = tkinter.Entry(root, width=50)
 entry_task.pack()
  
-space = Label(root, bg="#85e3ff")
+space = Label(root, bg="#293462")
 space.pack()
  
 button_add = tkinter.Button(root, text="Add Task", width=35, bg= "#bffcc6", bd= 6, command=add_task)
@@ -99,16 +99,16 @@ button_add.pack()
 button_delete = tkinter.Button(root, text="Delete Task", width=35, bg= "#ffabab", bd= 6, command=delete_task)
 button_delete.pack()
  
-button_mark = tkinter.Button(root, text= "Mark Task",bg="white", width=35, bd=6, command=mark_task)
+button_mark = tkinter.Button(root, text= "Mark Task",bg="#f4fa87", width=35, bd=6, command=mark_task)
 button_mark.pack()
  
 button_unmark = tkinter.Button(root, text= "UnMark Task", bg="white", width=35, bd=6, command=unmark_task)
 button_unmark.pack()
  
-button_load = tkinter.Button(root, text="Load", bg= "#f3ffe3", width=7, bd= 6, command=load_task)
+button_load = tkinter.Button(root, text="Load", bg= "#cccccc", width=7, bd= 6, command=load_task)
 button_load.place(x=15, y=145)
  
-button_save = tkinter.Button(root, text="Save", bg= "#f3ffe3" ,width=7, bd=6, command=save_task)
+button_save = tkinter.Button(root, text="Save", bg= "#cccccc" ,width=7, bd=6, command=save_task)
 button_save.place(x=15, y=106)
  
 button_delall = tkinter.Button(root, text="Delete All Task", bg= "#cccccc", bd= 6, width=35, command=del_all)
