@@ -65,10 +65,13 @@ def unmark_task():
         tkinter.messagebox.showwarning(title="Oops!", message="You Must Select A Task" )
  
 def del_all():
-    deleteall = listbox_tasks.delete(0, END)
-    listbox_tasks.delete(deleteall)
+    CONFIRM_DELALL = tkinter.messagebox.askokcancel(title= "Confirmation!", message= "Are You Sure To Delete All Your List??", icon= "warning")
+    if CONFIRM_DELALL:
+        deleteall = listbox_tasks.delete(0, END)
+        listbox_tasks.delete(deleteall)
+        tkinter.messagebox.showinfo(title="Status", message="Your List Deleted Successfully!!")
  
-#Membuat Elemen pada GUI
+#Membuat Elemen pada
 frame_tasks = tkinter.Frame(root)
 frame_tasks.pack()
  
